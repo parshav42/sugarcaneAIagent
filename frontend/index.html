@@ -1,0 +1,251 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugarcane AI Disease Detection</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script defer src="diseaseData.js"></script>
+    <script defer src="api.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🌱 Sugarcane AI
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#detect">Detect</a></li>
+        <li><a href="#library">Disease Library</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-left">
+
+        <h1>
+            AI Powered Sugarcane Disease Detection
+        </h1>
+
+        <p>
+
+            Upload a sugarcane leaf image and receive
+            instant disease detection powered by AI.
+
+        </p>
+
+        <a href="#detect" class="btn">
+            Detect Disease
+        </a>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img src="images/sugarcane.png"
+             alt="Sugarcane">
+
+    </div>
+
+</section>
+
+<!-- ================= DETECT ================= -->
+
+<section id="detect" class="detect">
+
+<h2>
+Disease Detection
+</h2>
+
+<div class="detect-container">
+
+<div class="upload-card">
+
+<input
+type="file"
+id="imageInput"
+accept="image/*"
+hidden>
+
+<label
+for="imageInput"
+class="upload-area">
+
+<h3>
+
+📷
+
+</h3>
+
+<p>
+
+Click to choose image
+
+</p>
+
+</label>
+
+<img
+id="preview"
+class="preview"
+>
+
+<button
+id="predictBtn">
+
+Predict Disease
+
+</button>
+
+</div>
+
+<div class="result-card">
+
+<h3>
+
+Prediction Result
+
+</h3>
+
+<div class="result">
+
+<p>
+
+Disease
+
+</p>
+
+<h2 id="disease">
+
+-
+
+</h2>
+
+<p>
+
+Confidence
+
+</p>
+
+<h3 id="confidence">
+
+-
+
+</h3>
+
+<div class="progress">
+
+<div
+id="progressBar"
+class="progress-bar">
+
+</div>
+
+</div>
+
+</div>
+
+<div id="description">
+
+Waiting for prediction...
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= LIBRARY ================= -->
+
+<section
+id="library"
+class="library">
+
+<h2>
+
+Disease Library
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+Healthy
+
+</div>
+
+<div class="card">
+
+Brown
+
+</div>
+
+<div class="card">
+
+Dry Leaf
+
+</div>
+
+<div class="card">
+
+Yellow Leaf
+
+</div>
+
+<div class="card">
+
+Sett Rot
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="about">
+
+<h2>
+
+Sugarcane AI
+
+</h2>
+
+<p>
+
+AI Powered Disease Detection
+
+</p>
+
+<p>
+
+© 2026
+
+</p>
+
+</footer>
+
+</body>
+</html>
+```
