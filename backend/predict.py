@@ -45,6 +45,6 @@ def predict(image_path):
     return predictions
 
 
-result = predict("/home/parshav/finalproject/pythonproject/image051.jpg")
+result = predict("/home/parshav/PycharmProjects/sugarcaneAIagent/image051.jpg")
 
 print(result)
