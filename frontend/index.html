@@ -1,16 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sugarcane AI Disease Detection</title>
-
     <link rel="stylesheet" href="style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@500;600;700&display=swap" rel="stylesheet">
     <script defer src="diseaseData.js"></script>
     <script defer src="api.js"></script>
     <script defer src="app.js"></script>
@@ -18,234 +14,152 @@
 <body>
 
 <!-- ================= NAVBAR ================= -->
-
 <nav class="navbar">
-
-    <div class="logo">
-        🌱 Sugarcane AI
-    </div>
-
+    <div class="logo">🌱 Sugarcane AI</div>
     <ul class="nav-links">
         <li><a href="#">Home</a></li>
         <li><a href="#detect">Detect</a></li>
         <li><a href="#library">Disease Library</a></li>
+        <li><a href="#shetimitra">Shetimitra</a></li>
         <li><a href="#about">About</a></li>
     </ul>
-
 </nav>
 
 <!-- ================= HERO ================= -->
-
 <section class="hero">
-
     <div class="hero-left">
-
-        <h1>
-            AI Powered Sugarcane Disease Detection
-        </h1>
-
+        <h1>AI Powered Sugarcane Disease Detection</h1>
         <p>
-
             Upload a sugarcane leaf image and receive
             instant disease detection powered by AI.
-
         </p>
-
-        <a href="#detect" class="btn">
-            Detect Disease
-        </a>
-
+        <div class="hero-buttons">
+            <a href="#detect" class="btn">Detect Disease</a>
+            <a href="#shetimitra" class="btn secondary-btn">💬 Ask Shetimitra</a>
+        </div>
     </div>
-
     <div class="hero-right">
-
-        <img src="sugarcaneAIagent/img.png"
-             alt="Sugar">
-
+        <img src="sugarcaneAIagent/img.png" alt="Sugarcane">
     </div>
-
 </section>
 
 <!-- ================= DETECT ================= -->
-
 <section id="detect" class="detect">
+    <h2>Disease Detection</h2>
+    <div class="detect-container">
 
-<h2>
-Disease Detection
-</h2>
+        <div class="upload-card">
+            <input type="file" id="imageInput" accept="image/*" hidden>
+            <label for="imageInput" class="upload-area">
+                <h3>📷</h3>
+                <p>Click to choose image</p>
+            </label>
+            <img id="preview" class="preview">
+            <button id="predictBtn">Predict Disease</button>
+        </div>
 
-<div class="detect-container">
+        <div class="result-card">
+            <h3>Prediction Result</h3>
+            <div class="result">
+                <p>Disease</p>
+                <h2 id="disease">-</h2>
+                <p>Confidence</p>
+                <h3 id="confidence">-</h3>
+                <div class="progress">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+            </div>
+            <div id="description">Waiting for prediction...</div>
+        </div>
 
-<div class="upload-card">
-
-<input
-type="file"
-id="imageInput"
-accept="image/*"
-hidden>
-
-<label
-for="imageInput"
-class="upload-area">
-
-<h3>
-
-📷
-
-</h3>
-
-<p>
-
-Click to choose image
-
-</p>
-
-</label>
-
-<img
-id="preview"
-class="preview"
->
-
-<button
-id="predictBtn">
-
-Predict Disease
-
-</button>
-
-</div>
-
-<div class="result-card">
-
-<h3>
-
-Prediction Result
-
-</h3>
-
-<div class="result">
-
-<p>
-
-Disease
-
-</p>
-
-<h2 id="disease">
-
--
-
-</h2>
-
-<p>
-
-Confidence
-
-</p>
-
-<h3 id="confidence">
-
--
-
-</h3>
-
-<div class="progress">
-
-<div
-id="progressBar"
-class="progress-bar">
-
-</div>
-
-</div>
-
-</div>
-
-<div id="description">
-
-Waiting for prediction...
-
-</div>
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
 <!-- ================= LIBRARY ================= -->
+<section id="library" class="library">
+    <h2>Disease Library</h2>
+    <div class="cards">
+        <div class="card">Healthy</div>
+        <div class="card">Brown</div>
+        <div class="card">Dry Leaf</div>
+        <div class="card">Yellow Leaf</div>
+        <div class="card">Sett Rot</div>
+    </div>
+</section>
 
-<section
-id="library"
-class="library">
+<!-- ================= SHETIMITRA (AI AGENT) ================= -->
+<section id="shetimitra" class="shetimitra">
 
-<h2>
+    <div class="shetimitra-head">
+        <span class="shetimitra-badge">🌾 Your farming companion</span>
+        <h2>
+            शेतीमित्र
+            <span>Shetimitra — ask about diseases, fertilizers, irrigation &amp; crop care</span>
+        </h2>
+        <p class="shetimitra-subtitle">
+            Type your question in Marathi, Hindi or English. Shetimitra answers
+            like a fellow farmer who's seen it all before.
+        </p>
+    </div>
 
-Disease Library
+    <div class="shetimitra-wrap">
 
-</h2>
+        <!-- Companion / status panel -->
+        <div class="shetimitra-companion">
+            <div class="shetimitra-avatar">🧑‍🌾</div>
+            <h4>Shetimitra</h4>
+            <p>Trained on sugarcane farming knowledge for Maharashtra's fields.</p>
+            <div class="shetimitra-status">
+                <span class="shetimitra-dot"></span> Online &amp; ready
+            </div>
+        </div>
 
-<div class="cards">
+        <!-- Chat panel -->
+        <div class="shetimitra-chat">
+            <div class="shetimitra-chat-header">
+                🤖 Ask Shetimitra
+                <span class="tag">AI Agent</span>
+            </div>
 
-<div class="card">
+            <div class="shetimitra-chips">
+                <button type="button" class="chip" data-q="ऊसाची पाने पिवळी का पडतात?">ऊसाची पाने पिवळी का?</button>
+                <button type="button" class="chip" data-q="Best fertilizer schedule for sugarcane?">Fertilizer schedule</button>
+                <button type="button" class="chip" data-q="किती दिवसांनी पाणी द्यावे?">पाणी कधी द्यावे?</button>
+                <button type="button" class="chip" data-q="How to control sett rot naturally?">Control sett rot</button>
+            </div>
 
-Healthy
+            <div class="shetimitra-thread">
+                <div class="bubble ai">
+                    <strong>Shetimitra:</strong>
+                    <div id="answer">Ask a question to begin...</div>
+                </div>
+            </div>
 
-</div>
+            <div class="shetimitra-inputrow">
+                <textarea id="question" placeholder="Example: Why are my sugarcane leaves turning yellow?"></textarea>
+                <button id="askBtn">Ask AI ➤</button>
+            </div>
+        </div>
 
-<div class="card">
-
-Brown
-
-</div>
-
-<div class="card">
-
-Dry Leaf
-
-</div>
-
-<div class="card">
-
-Yellow Leaf
-
-</div>
-
-<div class="card">
-
-Sett Rot
-
-</div>
-
-</div>
-
+    </div>
 </section>
 
 <!-- ================= FOOTER ================= -->
-
 <footer id="about">
-
-<h2>
-
-Sugarcane AI
-
-</h2>
-
-<p>
-
-AI Powered Disease Detection
-
-</p>
-
-<p>
-
-© 2026
-
-</p>
-
+    <h2>Sugarcane AI</h2>
+    <p>AI Powered Disease Detection</p>
+    <p>© 2026</p>
 </footer>
+
+<script>
+document.querySelectorAll('.chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+        var textarea = document.getElementById('question');
+        textarea.value = chip.getAttribute('data-q');
+        textarea.focus();
+    });
+});
+</script>
 
 </body>
 </html>
-```

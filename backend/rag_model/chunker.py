@@ -10,4 +10,5 @@ class Chunker:
         )
 
     def split_text(self, text):
+        
         return self.splitter.split_text(text)

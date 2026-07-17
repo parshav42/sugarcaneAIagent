@@ -1,9 +1,10 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from predict import predict
 import shutil
 import os
-
+from rag_model.qutiontoembedding import quembedding
 app = FastAPI()
 
 # CORS
@@ -18,6 +19,10 @@ app.add_middleware(
 UPLOAD_FOLDER = "upload"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+# ------------------------
+# Image Prediction
+# ------------------------
+
 @app.post("/predict")
 async def detect(file: UploadFile = File(...)):
     image_path = os.path.join(UPLOAD_FOLDER, file.filename)
@@ -27,3 +32,20 @@ async def detect(file: UploadFile = File(...)):
 
     result = predict(image_path)
     return result
+
+# ------------------------
+# Chat API
+# ------------------------
+
+class ChatRequest(BaseModel):
+    question: str
+
+@app.post("/shetimitra")
+async def chat(request: ChatRequest):
+
+    qu = quembedding()
+    answer = qu.get_answer(request.question)
+
+    return {
+        "answer": answer
+    }

@@ -30,6 +30,44 @@ imageInput.addEventListener("change", () => {
 
 });
 
+
+///===================================
+//  sugarcane ai
+//=================================
+// ==========================
+// Shetimitra Chat
+// ==========================
+
+const askBtn = document.getElementById("askBtn");
+
+askBtn.addEventListener("click", async () => {
+
+    const question = document.getElementById("question").value;
+
+    if(question.trim() === ""){
+        alert("Please enter a question.");
+        return;
+    }
+
+    try{
+
+        const data = await askAI(question);
+
+        document.getElementById("answer").innerHTML =
+            data.answer;
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        document.getElementById("answer").innerHTML =
+            "Unable to connect to AI Agent.";
+
+    }
+
+});
+
 // ==========================
 // Predict Button
 // ==========================

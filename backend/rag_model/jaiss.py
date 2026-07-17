@@ -1,12 +1,12 @@
-from pdfreader import PDFReader
-from chunker import Chunker
-from embedding import embedding
+from .pdfreader import PDFReader
+from .chunker import Chunker
+from .embedding import embedding
 import faiss
 import numpy as np
 
 
 
-reader = PDFReader("soya_soya2_merged.pdf")
+reader = PDFReader("/home/parshav/PycharmProjects/sugarcaneAIagent/backend/rag_model/soya_soya2_merged.pdf")
 text = reader.get_text()
 
 chunker = Chunker()
