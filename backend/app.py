@@ -39,11 +39,11 @@ async def detect(file: UploadFile = File(...)):
 
 class ChatRequest(BaseModel):
     question: str
-
+qu = quembedding()
 @app.post("/shetimitra")
 async def chat(request: ChatRequest):
 
-    qu = quembedding()
+
     answer = qu.get_answer(request.question)
 
     return {
