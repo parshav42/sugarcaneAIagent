@@ -1,14 +1,20 @@
 from pypdf import PdfReader
 
 
-class pdf():
+class PDFReader:
+
     def __init__(self, filename):
         self.filename = filename
-        self.reader = PdfReader(self.filename)
-        text = []
-        for page in self.reader.pages:
-            text += page.extract_text()
 
+    def get_text(self):
+        reader = PdfReader(self.filename)
 
+        text = ""
 
-pdf = pdf("/home/parshav/PycharmProjects/sugarcaneAIagent/rag_model/soya_soya2_merged.pdf")
+        for page in reader.pages:
+            page_text = page.extract_text()
+
+            if page_text:
+                text += page_text + "\n"
+
+        return text
