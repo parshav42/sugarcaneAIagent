@@ -5,6 +5,7 @@ from predict import predict
 import shutil
 import os
 from rag_model.qutiontoembedding import quembedding
+
 app = FastAPI()
 
 # CORS
@@ -36,13 +37,12 @@ async def detect(file: UploadFile = File(...)):
 
 class ChatRequest(BaseModel):
     question: str
+
+# Initialize RAG QA object once (cold start may load models)
 qu = quembedding()
+
 @app.post("/shetimitra")
 async def chat(request: ChatRequest):
-
-
+    # Return only the final answer string. Backend errors are logged but not exposed.
     answer = qu.get_answer(request.question)
-
-    return {
-        "answer": answer
-    }
+    return {"answer": answer}
