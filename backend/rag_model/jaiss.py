@@ -5,36 +5,29 @@ import faiss
 import numpy as np
 from rank_bm25 import BM25Okapi
 
-
+# Read and chunk the PDF
 reader = PDFReader("/home/parshav/PycharmProjects/sugarcaneAIagent/backend/rag_model/soya_soya2_merged.pdf")
 text = reader.get_text()
 
 chunker = Chunker()
-chunks = chunker.split_text(text)
+chunks_raw = chunker.split_text(text)
 
+# Prepare BM25
+tokenized_chunks = [c.split() for c in chunks_raw]
+bm25 = BM25Okapi(tokenized_chunks)
+
+# Prepare embeddings and FAISS index
 embedder = embedding()
-embedding = embedder.mo(chunks)
+embeddings = embedder.mo(chunks_raw)
+embeddings = np.array(embeddings).astype('float32')
 
-embedding= np.array(embedding).astype('float32')
+_index = faiss.IndexFlatL2(embeddings.shape[1])
+_index.add(embeddings)
 
-index= faiss.IndexFlatL2(embedding.shape[1])
-index.add(embedding)
+# Export variables expected by other modules
+# chunks is a list of dicts with key 'sentence_chunk' to match prompt formatting
+chunks = [{"sentence_chunk": c} for c in chunks_raw]
+index = _index
 
+# bm25 is already defined above
 
-#
-# tokenized_chunks = [chunk.split() for chunk in chunks]
-#
-# bm25 = BM25Okapi(tokenized_chunks)
-# query =  embedder.model.encode(["What factors influence soybean growth, development, and seed yield?"])
-#
-# query= np.array(query).astype('float32')
-#
-# dis , indicis = index.search(query, 5)
-#
-#
-# contex=[]
-#
-# for i in indicis[0]:
-#     contex.append(chunks[i])
-#
-# print(contex)
