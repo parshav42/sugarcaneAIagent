@@ -17,14 +17,14 @@ embedding = embedder.mo(chunks)
 
 embedding= np.array(embedding).astype('float32')
 
-index= faiss.IndexFlatL2(embedding.shape[1])
-index.add(embedding)
+# index= faiss.IndexFlatL2(embedding.shape[1])
+# index.add(embedding)
 
-
-
-tokenized_chunks = [chunk.split() for chunk in chunks]
-
-bm25 = BM25Okapi(tokenized_chunks)
+3
+#
+# tokenized_chunks = [chunk.split() for chunk in chunks]
+#
+# bm25 = BM25Okapi(tokenized_chunks)
 # query =  embedder.model.encode(["What factors influence soybean growth, development, and seed yield?"])
 #
 # query= np.array(query).astype('float32')
