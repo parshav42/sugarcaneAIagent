@@ -17,10 +17,10 @@ embedding = embedder.mo(chunks)
 
 embedding= np.array(embedding).astype('float32')
 
-# index= faiss.IndexFlatL2(embedding.shape[1])
-# index.add(embedding)
+index= faiss.IndexFlatL2(embedding.shape[1])
+index.add(embedding)
 
-3
+
 #
 # tokenized_chunks = [chunk.split() for chunk in chunks]
 #

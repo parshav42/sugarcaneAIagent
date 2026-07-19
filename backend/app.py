@@ -33,9 +33,6 @@ async def detect(file: UploadFile = File(...)):
     result = predict(image_path)
     return result
 
-# ------------------------
-# Chat API
-# ------------------------
 
 class ChatRequest(BaseModel):
     question: str
