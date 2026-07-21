@@ -35,12 +35,12 @@ def predict(image_path):
 
     predictions = []
 
-    for box in results[0].boxes:
-        predictions.append({
-            "disease": model.names[int(box.cls[0])],
-            "confidence": round(float(box.conf[0]) * 100, 2),
-            "bbox": box.xyxy[0].tolist()
-        })
+    # for box in results[0].boxes:
+    #     predictions.append({
+    #         "disease": model.names[int(box.cls[0])],
+    #         "confidence": round(float(box.conf[0]) * 100, 2),
+    #         "bbox": box.xyxy[0].tolist()
+    #     })
 
     return predictions
 
